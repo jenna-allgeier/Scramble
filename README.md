@@ -13,4 +13,5 @@
 * Short countdown timer at the start of game play.
 * A "share to social media" button if the user wins.
 ***
+### ***Credits***
 #### Link to Trello Board: [Jenna Allgeier's Trello Board](https://trello.com/invite/b/HieORAIf/141e2163d5187e48f75d6d9edb771ddf/project-1-game)
