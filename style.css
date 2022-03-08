@@ -57,20 +57,19 @@ h2 {
     width: 100px;
     margin: 2px;
     border: solid 2px rgb(102, 61, 22);
+    color:rgb(102, 61, 22);
+    font-size: 80px;
+    text-align: center;
 }
 
 .right-side {
     display: grid;
-    height: 100px;
-    width: 100px;
-    color: antiquewhite;
-    margin-bottom: 100px;
 }
 
 #replay {
     font-size: 25px;
-    padding: 15px;
-    border: rgb(102, 61, 22);
+    padding: 10px;
+    border: 1px solid rgb(102, 61, 22);
     border-radius: 10px;
     background-color: antiquewhite;
     color: rgb(102, 61, 22);
@@ -80,34 +79,44 @@ h2 {
 .score {
     color: antiquewhite;
     text-align: center;
-    text-shadow: 2px 2px 8px rgb(102, 61, 22);
+    text-shadow: 4px 4px 10px rgb(102, 61, 22);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 70px;
-    margin-bottom: 50px;
-    margin-top: -20px;
+    margin-bottom: 5px;
+    margin-top: -50px;
     
 }
 
 #scoreboard {
-    margin-top: 30px;
+    margin-top: 1px;
 }
 
 .input {
-    margin-top: 50px;
+    margin-top: 20px;
     height: 40px;
     background-color: antiquewhite;
     color: rgb(102, 61, 22);
-    border: 2px solid rgb(102, 61, 22);
+    border: 1px solid rgb(102, 61, 22);
     border-radius: 8px;
     padding: 10px;
 }
 
+#guess {
+    width: 320px;
+    height: 30px;
+}
+
 .letters-in-play {
-    color: antiquewhite;
+    color: rgb(102, 61, 22);
     text-align: center;
-    text-shadow: 2px 2px 8px rgb(102, 61, 22);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 50px;
     letter-spacing: 10px;
-    margin-top: 40px;
+    margin-top: 10px;
+    inline-size: 400px;
+    overflow-wrap: break-word;
+    padding: 5px;
+    background-color: antiquewhite;
+    border: 1px solid rgb(102, 61, 22);
+    border-radius: 5px;
 }

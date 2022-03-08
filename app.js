@@ -11,9 +11,11 @@ let startingLetters = [];
 
 let lettersInPlay = document.querySelector(".letters-in-play");
 
-// let playNow = document.getElementByClassName("play-now");
-
 let gridItem = document.querySelectorAll(".grid-item");
+
+let userInput = [];
+
+let userGuessSplit = [];
 
 
 
@@ -21,24 +23,47 @@ let gridItem = document.querySelectorAll(".grid-item");
 ////////////////////////////////
 // Functions For Game Logic Here
 
-//selects 7 letters from the letterSet to start the game
+// selects 7 letters from the letterSet to start the game
 const randomLetters = () => {
-    for(let i = 0; i < 7; i++) {
+    for(let i = 0; i < 25; i++) {
         let randomLetter = letterSet[Math.floor(Math.random()*letterSet.length)];
         startingLetters.push(randomLetter);
     }
     return startingLetters
 }
 
-
+// renders letters on the page
 const renderLetters = ( () => {
-    let exampleWord = randomLetters();
-    lettersInPlay.innerText = `${exampleWord}`;
-    
+    let lettersRendered = randomLetters();
+    lettersInPlay.innerText = `${lettersRendered}`;    
 })
 
 renderLetters()
 
+const markCell = ( (currentElement, userGuessSplit) => {
+    currentElement.innerText = `f`;
+    firstGuess = userGuessSplit[0];
+    console.log(firstGuess)
+})
+
+
 ////////////////////////////////
 // Event Listeners Here
+
+// receives user input and stores it in a variable
+
+document.querySelector("#send").addEventListener("click", function () {
+    let userGuess = document.querySelector("#guess").value;
+    userInput.push(userGuess);
+    userGuessSplit.push(userGuess.split(""));
+    console.log(userGuessSplit);
+})
+
+for (let i = 0; i < 25; i++) {
+    gridItem[i].addEventListener("click", function () {
+        let currentElement = this;
+        markCell(currentElement)
+    })
+}
+
 // playNow.addEventListener("click", randomLetters )
