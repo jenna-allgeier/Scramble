@@ -6,6 +6,9 @@ const letterSet = ["a", "a", "a", "a", "a", "a", "a", "a", "a", "b", "b", "c", "
 "o", "o", "o", "o", "o", "o", "o", "o", "p", "p", "q", "r", "r", "r", "r", "r", "r", "s", "s", "s", "s", 
 "t", "t", "t", "t", "t", "t", "u", "u", "u", "u", "v", "v", "w", "w", "x", "y", "y", "z"];
 
+let flag = [false, false, false, false, false, false, false, false, false, false, false, false, false, 
+    false, false, false, false, false, false, false, false, false, false, false, false]
+
 
 let startingLetters = [];
 
@@ -14,10 +17,6 @@ let lettersInPlay = document.querySelector(".letters-in-play");
 let gridItem = document.querySelectorAll(".grid-item");
 
 let gameBoard = document.querySelector(".game-board");
-
-let userInput = [];
-
-let userGuessSplit = [];
 
 let firstGrid = document.querySelector("#first");
 
@@ -50,10 +49,8 @@ renderLetters()
 
 // marks selected grid-item
 const markCell = ( (currentElement) => {
-    for (let i = 0; i < 25; i++) {
-        gridItem[i].classList.remove("selected-grid-item");
-    }
-    console.log(gridItem)
+    
+    // console.log(gridItem)
 
     currentElement.classList.add("selected-grid-item");
 
@@ -63,122 +60,134 @@ const markCell = ( (currentElement) => {
 })
 
 
+const resetHTML = ( () => {
+    for (let i = 0; i < 25; i++) {
+        gridItem[i].classList.remove("selected-grid-item");
+    }
+
+    flag = [false, false, false, false, false, false, false, false, false, false, false, false, false, 
+        false, false, false, false, false, false, false, false, false, false, false, false]
+})
+
 
 
 ////////////////////////////////
 // Event Listeners Here
 
-// receives user input and stores it in a variable
-
-document.querySelector("#send").addEventListener("click", function () {
-    let userGuess = document.querySelector("#guess").value;
-    userInput.push(userGuess);
-    userGuessSplit.push(...userGuess.split(""));
-    console.log(userGuessSplit);
-})
-
 // event listener for grid
 for (let i = 0; i < 25; i++) {
     gridItem[i].addEventListener("click", function () {
         let currentElement = this;
-        let gridInnerText = this.innerText;
-        console.log(gridInnerText);
+        console.log(currentElement);
+
+        resetHTML();
         markCell(currentElement);
-        // markLetter(gridInnerText);
+        flag[i] = true
+        // console.log(gridItem)
     })
 }
 
-// // event listener for keypress
-// const markLetter = ( () => {
-    
-//     firstGrid.addEventListener("keypress", function () {
-//         keyPress(event.key);
-//     })
-    
-//     const keyPress = ( (key, gridInnerText) => {
-//         switch(key) {
-//             case "a":
-//                 gridInnerText = "a";
-//                 break;
-//             case "b":
-//                 currentElement.innerText = "b";
-//                 break;
-    
-//             case "c":
-//                 currentElement.innerText = "c";
-//                 break;
-//             case "d":
-//                 currentElement.innerText = "d";
-//                 break;
-//             case "e":
-//                 currentElement.innerText = "e";
-//                 break;
-//             case "f":
-//                 currentElement.innerText = "f";
-//                 break;
-//             case "g":
-//                 currentElement.innerText = "g";
-//                 break;
-//             case "h":
-//                 currentElement.innerText = "h";
-//                 break;
-//             case "i":
-//                 currentElement.innerText = "i";
-//                 break;
-//             case "j":
-//                 currentElement.innerText = "j";
-//                 break;
-//             case "k":
-//                 currentElement.innerText = "k";
-//                 break;
-//             case "l":
-//                 currentElement.innerText = "l";
-//                 break;
-//             case "m":
-//                 currentElement.innerText = "m";
-//                 break;
-//             case "n":
-//                 currentElement.innerText = "n";
-//                 break;
-//             case "o":
-//                 currentElement.innerText = "o";
-//                 break;
-//             case "p":
-//                 currentElement.innerText = "p";
-//                 break;
-//             case "q":
-//                 currentElement.innerText = "q";
-//                 break;
-//             case "r":
-//                 currentElement.innerText = "r";
-//                 break;
-//             case "s":
-//                 currentElement.innerText = "s";
-//                 break;
-//             case "t":
-//                 currentElement.innerText = "t";
-//                 break;
-//             case "u":
-//                 currentElement.innerText = "u";
-//                 break;
-//             case "v":
-//                 currentElement.innerText = "v";
-//                 break;
-//             case "w":
-//                 currentElement.innerText = "w";
-//                 break;
-//             case "x":
-//                 currentElement.innerText = "x";
-//                 break;
-//             case "y":
-//                 currentElement.innerText = "y";
-//                 break;
-//             case "z":
-//                 currentElement.innerText = "z";
-//                 break;
-//             default: console.log(gridInnerText);
-//         }
-//     })
+// event listener for key press
+document.addEventListener("keypress", function (e) {
+        // console.log('keypress function')
+        for(x of gridItem){
+            if(x.classList.value.includes('selected-grid-item')){
+                // console.log('if passed')
+                // console.log(x)
+                x.innerText = e.key
+
+            }
+                
+        }
+        // console.log(e.key)
+
+    })
 
 
-// })
+
+
+    
+const keyPress = ( (key) => {
+        switch(key) {
+            case "a":
+                currentElement.innerText = "a";
+                break;
+            case "b":
+                currentElement.innerText = "b";
+                break;
+    
+            case "c":
+                currentElement.innerText = "c";
+                break;
+            case "d":
+                currentElement.innerText = "d";
+                break;
+            case "e":
+                currentElement.innerText = "e";
+                break;
+            case "f":
+                currentElement.innerText = "f";
+                break;
+            case "g":
+                currentElement.innerText = "g";
+                break;
+            case "h":
+                currentElement.innerText = "h";
+                break;
+            case "i":
+                currentElement.innerText = "i";
+                break;
+            case "j":
+                currentElement.innerText = "j";
+                break;
+            case "k":
+                currentElement.innerText = "k";
+                break;
+            case "l":
+                currentElement.innerText = "l";
+                break;
+            case "m":
+                currentElement.innerText = "m";
+                break;
+            case "n":
+                currentElement.innerText = "n";
+                break;
+            case "o":
+                currentElement.innerText = "o";
+                break;
+            case "p":
+                currentElement.innerText = "p";
+                break;
+            case "q":
+                currentElement.innerText = "q";
+                break;
+            case "r":
+                currentElement.innerText = "r";
+                break;
+            case "s":
+                currentElement.innerText = "s";
+                break;
+            case "t":
+                currentElement.innerText = "t";
+                break;
+            case "u":
+                currentElement.innerText = "u";
+                break;
+            case "v":
+                currentElement.innerText = "v";
+                break;
+            case "w":
+                currentElement.innerText = "w";
+                break;
+            case "x":
+                currentElement.innerText = "x";
+                break;
+            case "y":
+                currentElement.innerText = "y";
+                break;
+            case "z":
+                currentElement.innerText = "z";
+                break;
+            default: console.log('keypressdefault');
+        }
+})
