@@ -16,7 +16,8 @@ const letterSet = ["a", "a", "a", "a", "a", "a", "a", "a", "a", "b", "b", "c", "
 const wordBank = ["fiend", "brand", "swarm", "trout", "brain", "hazy", "queen", "exits", "mouse", "arise", 
 "horse", "point", "alone", "empty", "slate", "place", "light", "mount", "doubt", "query", "found", "chalk",
 "state", "sound", "water", "joint", "mined", "tango", "gloat", "brine", "prise", "loser", "liver", "timer",
-"proud", "wreck", "tinge", "giver"]
+"proud", "wreck", "tinge", "giver", "scorn", "haven", "teeth", "worth", "wrath", "great", "grate", "wrong",
+"timed"]
 
 let startingLetters = [];
 
@@ -105,15 +106,43 @@ const compareUserToWordBank = (gridLetters) => {
     let fourthRow = ((gridLetters[15]) + (gridLetters[16]) + (gridLetters[17]) + (gridLetters[18]) + (gridLetters[19]));
     let fifthRow = ((gridLetters[20]) + (gridLetters[21]) + (gridLetters[22]) + (gridLetters[23]) + (gridLetters[24]));
 
-    let firstColumn = ((gridLetters[0]) + (gridLetters[5]) + (gridLetters[10]) + (gridLetters[15]) + (gridLetters)[20]);
-    let secondColumn = ((gridLetters[1]) + (gridLetters[6]) + (gridLetters[11]) + (gridLetters[16]) + (gridLetters)[21]);
-    let thirdColumn = ((gridLetters[2]) + (gridLetters[7]) + (gridLetters[12]) + (gridLetters[17]) + (gridLetters)[22]);
-    let fourthColumn = ((gridLetters[3]) + (gridLetters[8]) + (gridLetters[13]) + (gridLetters[18]) + (gridLetters)[23]);
-    let fifthColumn = ((gridLetters[4]) + (gridLetters[9]) + (gridLetters[14]) + (gridLetters[19]) + (gridLetters)[24]);
+    // let firstColumn = ((gridLetters[0]) + (gridLetters[5]) + (gridLetters[10]) + (gridLetters[15]) + (gridLetters)[20]);
+    // let secondColumn = ((gridLetters[1]) + (gridLetters[6]) + (gridLetters[11]) + (gridLetters[16]) + (gridLetters)[21]);
+    // let thirdColumn = ((gridLetters[2]) + (gridLetters[7]) + (gridLetters[12]) + (gridLetters[17]) + (gridLetters)[22]);
+    // let fourthColumn = ((gridLetters[3]) + (gridLetters[8]) + (gridLetters[13]) + (gridLetters[18]) + (gridLetters)[23]);
+    // let fifthColumn = ((gridLetters[4]) + (gridLetters[9]) + (gridLetters[14]) + (gridLetters[19]) + (gridLetters)[24]);
 
-    console.log(firstColumn)
-    console.log(thirdColumn)
-    console.log(fifthColumn)
+    // console.log(firstColumn)
+    // console.log(thirdColumn)
+    // console.log(fifthColumn)
+
+    console.log(typeof(firstRow))
+
+    let test = true;
+
+    if(test){
+        compareUserToStart(gridLetters);
+        console.log("first row")
+    }
+    else if(wordBank.includes(secondRow)){
+        compareUserToStart(gridLetters);
+        console.log("second row")
+    }
+    else if(wordBank.includes(thirdRow)){
+        compareUserToStart(gridLetters);
+        console.log("third row")
+    }
+    else if(wordBank.includes(fourthRow)){
+        compareUserToStart(gridLetters);
+        console.log("fourth row")
+    }
+    else if(wordBank.includes(fifthRow)){
+        compareUserToStart(gridLetters);
+        console.log("fifth row")
+    }
+    else{
+        alert("Word not found in Word Bank.")
+    }
 }
 
 
@@ -165,7 +194,7 @@ document.addEventListener("keypress", function (e) {
 // event listener for submit button
 submit.addEventListener("click", function () {
     let gridLetters = pullGridLetters();
-    compareUserToStart(gridLetters);
+    
     compareUserToWordBank(gridLetters);
 })
 
