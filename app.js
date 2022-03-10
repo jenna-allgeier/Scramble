@@ -17,7 +17,7 @@ const wordBank = ["fiend", "brand", "swarm", "trout", "brain", "hazy", "queen", 
 "horse", "point", "alone", "empty", "slate", "place", "light", "mount", "doubt", "query", "found", "chalk",
 "state", "sound", "water", "joint", "mined", "tango", "gloat", "brine", "prise", "loser", "liver", "timer",
 "proud", "wreck", "tinge", "giver", "scorn", "haven", "teeth", "worth", "wrath", "great", "grate", "wrong",
-"timed"]
+"timed", "taped", "today", "paved", "prove", "voter", "hoped", "guess"]
 
 let startingLetters = [];
 
@@ -120,7 +120,7 @@ const compareUserToWordBank = (gridLetters) => {
 
     let test = true;
 
-    if(test){
+    if(wordBank.includes(firstRow)){
         compareUserToStart(gridLetters);
         console.log("first row")
     }
