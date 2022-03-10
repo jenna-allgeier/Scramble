@@ -80,7 +80,7 @@ h2 {
     text-decoration: none;
 }
 
-.score {
+#score {
     color: antiquewhite;
     text-align: center;
     text-shadow: 4px 4px 10px rgb(102, 61, 22);
@@ -88,7 +88,7 @@ h2 {
     font-size: 70px;
     margin-bottom: 5px;
     margin-top: -50px;
-    
+    height: 70px;
 }
 
 #scoreboard {

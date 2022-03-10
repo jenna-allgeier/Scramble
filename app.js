@@ -72,15 +72,24 @@ const pullGridLetters = () => {
 }
 
 const compareUserToStart = (gridLetters) => {
-    console.log(typeof(gridLetters));
-    console.log(typeof(startingLetters));
     for (let i = 0; i < gridLetters.length; i++) {
-        if(gridLetters[i] in startingLetters) {
+     
+        if(startingLetters.includes(gridLetters[i])) {
             // remove gridLetters[i] from startingLetters
-            console.log("startingLetters - gridLetters[i]")
+            let index = startingLetters.indexOf(gridLetters[i]);
+            startingLetters.splice(index, 1);
+            console.log(startingLetters)
+        }
+        else{
+            return alert("You used a letter that does not exist in the letter bank.")
         }
     }
+    document.getElementById("score").innerText = (25 - startingLetters.length);
 }
+
+// const addUpScore = () => {
+
+// }
 
 ////////////////////////////////
 // Event Listeners Here
