@@ -65,18 +65,19 @@ const pullGridLetters = () => {
 
 
 const compareUserToStart = (gridLetters) => {
+    let cloneStartingLetters = [...startingLetters];
     for (let i = 0; i < gridLetters.length; i++) {
      
-        if(startingLetters.includes(gridLetters[i])) {
-            // remove gridLetters[i] from startingLetters
-            let index = startingLetters.indexOf(gridLetters[i]);
-            startingLetters.splice(index, 1);
+        if(cloneStartingLetters.includes(gridLetters[i])) {
+            // remove gridLetters[i] from cloneStartingLetters
+            let index = cloneStartingLetters.indexOf(gridLetters[i]);
+            cloneStartingLetters.splice(index, 1);
         }
         else{
             return alert("You used a letter that does not exist in the letter bank.")
         }
     }
-    document.getElementById("score").innerText = (25 - startingLetters.length);
+    document.getElementById("score").innerText = (25 - cloneStartingLetters.length);
 }
 
 
