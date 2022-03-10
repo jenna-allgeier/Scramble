@@ -67,11 +67,11 @@ const pullGridLetters = () => {
 
 
 const compareUserToStart = (gridLetters) => {
+
     let cloneStartingLetters = [...startingLetters];
+
     for (let i = 0; i < gridLetters.length; i++) {
-     
         if(cloneStartingLetters.includes(gridLetters[i])) {
-            // remove gridLetters[i] from cloneStartingLetters
             let index = cloneStartingLetters.indexOf(gridLetters[i]);
             cloneStartingLetters.splice(index, 1);
         }
@@ -79,12 +79,19 @@ const compareUserToStart = (gridLetters) => {
             return alert("You used a letter that does not exist in the letter bank.")
         }
     }
+
     document.getElementById("score").innerText = (25 - cloneStartingLetters.length);
+
 }
 
 const playAgain = () => {
+
+    for (let i = 0; i < gridItem.length; i++) {
+        gridItem[i].innerText = "";
+    }
+
     document.getElementById("score").innerText = 0;
-    
+
     startingLetters = [];
     
     lettersInPlay.innerText = "";
@@ -97,7 +104,7 @@ const playAgain = () => {
 // Event Listeners Here
 
 // event listener for grid
-for (let i = 0; i < 25; i++) {
+for (let i = 0; i < gridItem.length; i++) {
     gridItem[i].addEventListener("click", function () {
         let currentElement = this;
 
