@@ -21,6 +21,14 @@ let replay = document.getElementById("replay");
 ////////////////////////////////
 // Functions For Game Logic Here
 
+// renders letters on the page
+const renderLetters = ( () => {
+    let lettersRendered = randomLetters();
+    lettersInPlay.innerText = `${lettersRendered}`;    
+})
+
+
+
 // selects 25 letters from the letterSet to start the game
 const randomLetters = () => {
     for(let i = 0; i < 25; i++) {
@@ -30,14 +38,8 @@ const randomLetters = () => {
     return startingLetters
 }
 
-// renders letters on the page
-const renderLetters = ( () => {
-    let lettersRendered = randomLetters();
-    lettersInPlay.innerText = `${lettersRendered}`;    
-})
 
 renderLetters()
-
 
 // marks selected grid-item
 const markCell = ( (currentElement) => {
@@ -80,6 +82,16 @@ const compareUserToStart = (gridLetters) => {
     document.getElementById("score").innerText = (25 - cloneStartingLetters.length);
 }
 
+const playAgain = () => {
+    document.getElementById("score").innerText = 0;
+    
+    startingLetters = [];
+    
+    lettersInPlay.innerText = "";
+    
+    renderLetters()
+}
+
 
 ////////////////////////////////
 // Event Listeners Here
@@ -114,3 +126,6 @@ submit.addEventListener("click", function () {
     let gridLetters = pullGridLetters();
     compareUserToStart(gridLetters);
 })
+
+// event listener for replay button
+replay.addEventListener("click", playAgain);
