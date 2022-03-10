@@ -1,3 +1,10 @@
+// API Domain/Key
+
+const API_KEY = 'd7ecbae8083665f552ced8220974a6c4'
+const BASE_URL = 'https://od-api.oxforddictionaries.com/api/v2'
+const APP_ID = '504320ab'
+
+
 // Global Variables Here
 
 const letterSet = ["a", "a", "a", "a", "a", "a", "a", "a", "a", "b", "b", "c", "c", "d", "d", "d", "d", 
@@ -5,6 +12,11 @@ const letterSet = ["a", "a", "a", "a", "a", "a", "a", "a", "a", "b", "b", "c", "
 "i", "i", "i", "i", "i", "i", "i", "j", "k", "l", "l", "l", "l", "m", "m", "n", "n", "n", "n", "n", "n", 
 "o", "o", "o", "o", "o", "o", "o", "o", "p", "p", "q", "r", "r", "r", "r", "r", "r", "s", "s", "s", "s", 
 "t", "t", "t", "t", "t", "t", "u", "u", "u", "u", "v", "v", "w", "w", "x", "y", "y", "z"];
+
+const wordBank = ["fiend", "brand", "swarm", "trout", "brain", "hazy", "queen", "exits", "mouse", "arise", 
+"horse", "point", "alone", "empty", "slate", "place", "light", "mount", "doubt", "query", "found", "chalk",
+"state", "sound", "water", "joint", "mined", "tango", "gloat", "brine", "prise", "loser", "liver", "timer",
+"proud", "wreck", "tinge", "giver"]
 
 let startingLetters = [];
 
@@ -84,6 +96,28 @@ const compareUserToStart = (gridLetters) => {
 
 }
 
+
+const compareUserToWordBank = (gridLetters) => {
+
+    let firstRow = ((gridLetters[0]) + (gridLetters[1]) + (gridLetters[2]) + (gridLetters[3]) + (gridLetters[4]));
+    let secondRow = ((gridLetters[5]) + (gridLetters[6]) + (gridLetters[7]) + (gridLetters[8]) + (gridLetters[9]));
+    let thirdRow = ((gridLetters[10]) + (gridLetters[11]) + (gridLetters[12]) + (gridLetters[13]) + (gridLetters[14]));
+    let fourthRow = ((gridLetters[15]) + (gridLetters[16]) + (gridLetters[17]) + (gridLetters[18]) + (gridLetters[19]));
+    let fifthRow = ((gridLetters[20]) + (gridLetters[21]) + (gridLetters[22]) + (gridLetters[23]) + (gridLetters[24]));
+
+    let firstColumn = ((gridLetters[0]) + (gridLetters[5]) + (gridLetters[10]) + (gridLetters[15]) + (gridLetters)[20]);
+    let secondColumn = ((gridLetters[1]) + (gridLetters[6]) + (gridLetters[11]) + (gridLetters[16]) + (gridLetters)[21]);
+    let thirdColumn = ((gridLetters[2]) + (gridLetters[7]) + (gridLetters[12]) + (gridLetters[17]) + (gridLetters)[22]);
+    let fourthColumn = ((gridLetters[3]) + (gridLetters[8]) + (gridLetters[13]) + (gridLetters[18]) + (gridLetters)[23]);
+    let fifthColumn = ((gridLetters[4]) + (gridLetters[9]) + (gridLetters[14]) + (gridLetters[19]) + (gridLetters)[24]);
+
+    console.log(firstColumn)
+    console.log(thirdColumn)
+    console.log(fifthColumn)
+}
+
+
+
 const playAgain = () => {
 
     for (let i = 0; i < gridItem.length; i++) {
@@ -132,6 +166,7 @@ document.addEventListener("keypress", function (e) {
 submit.addEventListener("click", function () {
     let gridLetters = pullGridLetters();
     compareUserToStart(gridLetters);
+    compareUserToWordBank(gridLetters);
 })
 
 // event listener for replay button
