@@ -41,14 +41,7 @@ renderLetters()
 
 // marks selected grid-item
 const markCell = ( (currentElement) => {
-    
-    // console.log(gridItem)
-
     currentElement.classList.add("selected-grid-item");
-
-
-    // firstGuess = userGuessSplit[0];
-    // console.log(firstGuess)
 })
 
 
@@ -56,8 +49,8 @@ const resetHTML = ( () => {
     for (let i = 0; i < 25; i++) {
         gridItem[i].classList.remove("selected-grid-item");
     }
-
 })
+
 
 const pullGridLetters = () => {
     let inputLetters = [];
@@ -67,9 +60,9 @@ const pullGridLetters = () => {
             inputLetters.push(gridItem[i].innerText);
             }
     }
-    // console.log(inputLetters)
     return inputLetters
 }
+
 
 const compareUserToStart = (gridLetters) => {
     for (let i = 0; i < gridLetters.length; i++) {
@@ -78,7 +71,6 @@ const compareUserToStart = (gridLetters) => {
             // remove gridLetters[i] from startingLetters
             let index = startingLetters.indexOf(gridLetters[i]);
             startingLetters.splice(index, 1);
-            console.log(startingLetters)
         }
         else{
             return alert("You used a letter that does not exist in the letter bank.")
@@ -87,9 +79,6 @@ const compareUserToStart = (gridLetters) => {
     document.getElementById("score").innerText = (25 - startingLetters.length);
 }
 
-// const addUpScore = () => {
-
-// }
 
 ////////////////////////////////
 // Event Listeners Here
@@ -98,26 +87,25 @@ const compareUserToStart = (gridLetters) => {
 for (let i = 0; i < 25; i++) {
     gridItem[i].addEventListener("click", function () {
         let currentElement = this;
-        console.log(currentElement);
 
         resetHTML();
         markCell(currentElement);
-       
         
     })
 }
 
+
 // event listener for key press
 document.addEventListener("keypress", function (e) {
-        for(x of gridItem){
-            if(x.classList.value.includes('selected-grid-item')){
-                x.innerText = e.key;
+    for(x of gridItem){
+        if(x.classList.value.includes('selected-grid-item')){
+            x.innerText = e.key;
 
-            }
-                
         }
+                
+    }
 
-    })
+})
 
 
 // event listener for submit button
@@ -125,4 +113,3 @@ submit.addEventListener("click", function () {
     let gridLetters = pullGridLetters();
     compareUserToStart(gridLetters);
 })
-
