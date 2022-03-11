@@ -73,7 +73,7 @@ h2 {
 #replay {
     font-size: 25px;
     padding: 10px;
-    border: 1px solid rgb(102, 61, 22);
+    border: 2px solid rgb(102, 61, 22);
     border-radius: 10px;
     background-color: antiquewhite;
     color: rgb(102, 61, 22);
@@ -98,17 +98,12 @@ h2 {
 .input {
     font-size: 25px;
     padding: 10px;
-    border: 1px solid rgb(102, 61, 22);
+    border: 2px solid rgb(102, 61, 22);
     border-radius: 10px;
     background-color: antiquewhite;
     color: rgb(102, 61, 22);
     text-decoration: none;
     margin-top: 10px;
-}
-
-#guess {
-    width: 320px;
-    height: 30px;
 }
 
 .letters-in-play {
@@ -120,8 +115,8 @@ h2 {
     margin-top: 5px;
     inline-size: 400px;
     overflow-wrap: break-word;
-    padding: 5px;
+    padding: 8px;
     background-color: antiquewhite;
-    border: 1px solid rgb(102, 61, 22);
+    border: 2px solid rgb(102, 61, 22);
     border-radius: 5px;
 }
